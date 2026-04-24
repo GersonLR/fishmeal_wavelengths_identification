@@ -1,165 +1,68 @@
-
 # Identification of Important Wavelengths for Fishmeal Protein Estimation
 
-Python implementation of the methodology presented in:
+This repository contains the Python implementation used in the article: **“Identification of most important wavelengths in the spectral signature for on-line estimation of protein in anchoveta fishmeal (Engraulis ringens)”**
 
-**Identification of most important wavelengths in the spectral signature for on-line estimation of protein in anchoveta fishmeal (Engraulis ringens)**
+The objective of this project is to identify the most relevant wavelengths in the visible–near infrared spectral range (400–900 nm) for estimating protein content in fishmeal using Partial Least Squares (PLS) regression combined with variable selection methods.
 
-This repository contains the implementation of wavelength selection methods applied to hyperspectral reflectance data for protein estimation using Partial Least Squares (PLS).
+## Project objective
 
----
-
-## Project overview
-
-The objective of this project is to identify the most relevant wavelengths within the spectral range:
-
-**400–900 nm**
-
-to estimate fishmeal protein content using:
-
+Estimate fishmeal protein content from hyperspectral reflectance data using:
 - Partial Least Squares (PLS)
 - Variable Importance in Projection (VIP)
 - Backward Variable Elimination (BVE)
 - Grid Search Moving Window (GSMW)
 
-The methodology enables reducing the number of wavelengths while maintaining predictive performance.
+These methods allow reducing the number of wavelengths required for prediction while maintaining high accuracy.
 
----
+## Dataset description
+
+The dataset consists of:
+- 122 fishmeal samples
+- Spectral signature range: 400–900 nm
+- 240 wavelength channels
+- Protein reference values obtained using the Kjeldahl method
+
+Spectral signatures were normalized using L2 normalization before model training.
 
 ## Repository structure
+- Analisis_descriptivo.ipynb
+- Analisis_estadistico_comparacion.ipynb
+- PLS_BVE/
+- PLS_GSMW/
+- PLS_VIP/
+- PLS_completo/
 
-```
-fishmeal_wavelengths_identification/
-│
-├── Analisis_descriptivo.ipynb
-├── Analisis_estadistico_comparacion.ipynb
-│
-├── PLS_completo/
-├── PLS_VIP/
-├── PLS_BVE/
-├── PLS_GSMW/
-```
+## Description:
 
-### Description
+- Analisis_descriptivo.ipynb: Exploratory analysis of spectral signatures, protein distribution and normalization process
+- Analisis_estadistico_comparacion.ipynb: Comparison between models Full PLS, VIP-PLS, BVE-PLS and GSMW-PLS
 
-**Analisis_descriptivo.ipynb**
-Exploratory data analysis:
-
-- spectral signatures
-- normalization
-- protein distribution
-
-**Analisis_estadistico_comparacion.ipynb**
-Model comparison:
-
-- Full PLS
-- VIP-PLS
-- BVE-PLS
-- GSMW-PLS
-
-Evaluation metrics:
-
+## Performance metrics:
 - R²
 - RMSE
 - Q² cross-validation
 
-**PLS_completo**
-Baseline model using all wavelengths
+## Methodology
 
-**PLS_VIP**
-Feature selection based on VIP ≥ 1
+The repository implements the following workflow:
+- Spectral signature normalization
+- Train/test split (75% / 25%)
+- Cross-validation for component selection
+- PLS regression
+- Variable selection using: VIP, BVE and GSMW
+- Performance comparison between models
 
-**PLS_BVE**
-Iterative elimination using regression coefficient magnitude
+## Main results
 
-**PLS_GSMW**
-Optimal spectral window detection using moving window grid search
+The BVE-PLS model achieved: similar accuracy to full-spectrum PLS using less than one quarter of wavelengths
 
----
-
-## Dataset characteristics
-
-Samples: 122 fishmeal samples  
-Spectral range: 400–900 nm  
-Channels: 240 wavelengths  
-
-Reference protein values obtained using:
-
-Kjeldahl method
-
-Preprocessing:
-
-L2 normalization applied to spectral signatures
-
-Dataset split:
-
-75% training  
-25% testing
-
----
-
-## Workflow
-
-```
-Normalization
-↓
-Train/test split
-↓
-Cross-validation (Q²)
-↓
-PLS regression
-↓
-Variable selection (VIP, BVE, GSMW)
-↓
-Performance comparison
-```
-
----
-
-## Results summary
-
-Feature selection methods reduce dimensionality while maintaining prediction accuracy.
-
-Best trade-off:
-
-**BVE-PLS**
-
-Uses fewer wavelengths with performance comparable to full-spectrum PLS.
-
-Suitable for:
-
-real-time industrial implementation
-
----
-
-## Requirements
-
-Install dependencies:
-
-```
-pip install numpy pandas matplotlib scipy scikit-learn
-```
-
----
-
-## Citation
-
-If you use this repository, please cite:
-
-La Rosa G., Valdiviezo J., Soto J.
-
-Identification of most important wavelengths in the spectral signature for on-line estimation of protein in anchoveta fishmeal
-
----
-
-## Author
-
-Gerson La Rosa  
-Universidad de Piura  
-Peru
-
----
+This confirms its suitability for real-time industrial implementation.
 
 ## Contact
+Gerson La Rosa
 
 gerson.larosa@udep.edu.pe
+
+Universidad de Piura
+
+Peru
