@@ -1,10 +1,12 @@
+#Identification of Important Wavelengths for Fishmeal Protein Estimation
+
 This repository contains the Python implementation used in the article:
 
 “Identification of most important wavelengths in the spectral signature for on-line estimation of protein in anchoveta fishmeal (Engraulis ringens)”
 
 The objective of this project is to identify the most relevant wavelengths in the visible–near infrared spectral range (400–900 nm) for estimating protein content in fishmeal using Partial Least Squares (PLS) regression combined with variable selection methods.
 
-Project objective
+#Project objective
 
 Estimate fishmeal protein content from hyperspectral reflectance data using:
 
@@ -15,7 +17,7 @@ Grid Search Moving Window (GSMW)
 
 These methods allow reducing the number of wavelengths required for prediction while maintaining high accuracy.
 
-Dataset description
+#Dataset description
 
 The dataset consists of:
 
@@ -26,7 +28,7 @@ Protein reference values obtained using the Kjeldahl method
 
 Spectral signatures were normalized using L2 normalization before model training.
 
-Repository structure
+#Repository structure
 fishmeal_wavelengths_identification/
 │
 ├── Analisis_descriptivo.ipynb
@@ -40,7 +42,7 @@ fishmeal_wavelengths_identification/
 │
 ├── PLS_completo/
 
-Description:
+#Description:
 
 Analisis_descriptivo.ipynb
 
@@ -108,28 +110,14 @@ using less than one quarter of wavelengths
 
 This confirms its suitability for real-time industrial implementation.
 
-Requirements
-
-Python libraries used:
-
-numpy
-pandas
-matplotlib
-scikit-learn
-scipy
-
-Install dependencies:
-
-pip install numpy pandas matplotlib scikit-learn scipy
-Citation
-
 If you use this repository, please cite:
 
 La Rosa G., Valdiviezo J., Soto J.
 Identification of most important wavelengths in the spectral signature
 for on-line estimation of protein in anchoveta fishmeal.
-Contact
 
+#Contact
 Gerson La Rosa
+gerson.larosa@udep.edu.pe
 Universidad de Piura
 Peru
